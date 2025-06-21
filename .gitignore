@@ -1,0 +1,7 @@
+.pytest_cache
+.venv
+app/__pycache__
+app/routes/__pycache__
+app/schemas/__pycache__
+htmlcov
+tests/__pycache__
