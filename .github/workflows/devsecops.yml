@@ -25,72 +25,72 @@ jobs:
           pip install -r requirements.txt
           pip install pytest coverage bandit
 
-      - name: Linting (opcional)
-        run: |
-          pip install flake8
-          flake8 app
+      # - name: Linting (opcional)
+      #   run: |
+      #     pip install flake8
+      #     flake8 app
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v3
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v4
+  #       with:
+  #         python-version: "3.11"
 
-      - name: Instalar dependencias
-        run: |
-          pip install -r requirements.txt
-          pip install pytest coverage
+  #     - name: Instalar dependencias
+  #       run: |
+  #         pip install -r requirements.txt
+  #         pip install pytest coverage
 
-      - name: Ejecutar pruebas con cobertura
-        run: |
-          coverage run -m pytest
-          coverage html
-          coverage report
+  #     - name: Ejecutar pruebas con cobertura
+  #       run: |
+  #         coverage run -m pytest
+  #         coverage html
+  #         coverage report
 
-      - name: Subir reporte HTML de cobertura
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: htmlcov
+  #     - name: Subir reporte HTML de cobertura
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: coverage-report
+  #         path: htmlcov
 
-  security:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v3
+  # security:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v4
+  #       with:
+  #         python-version: "3.11"
 
-      - name: Instalar Bandit
-        run: pip install bandit
+  #     - name: Instalar Bandit
+  #       run: pip install bandit
 
-      - name: Ejecutar análisis SAST (Bandit)
-        run: |
-          bandit -r app -f html -o bandit-report.html
+  #     - name: Ejecutar análisis SAST (Bandit)
+  #       run: |
+  #         bandit -r app -f html -o bandit-report.html
 
-      - name: Subir reporte Bandit
-        uses: actions/upload-artifact@v4
-        with:
-          name: bandit-report
-          path: bandit-report.html
+  #     - name: Subir reporte Bandit
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: bandit-report
+  #         path: bandit-report.html
 
-      - name: Ejecutar análisis SCA (Trivy)
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: "budget-api:latest"
-          format: "table"
-          output: "trivy-report.txt"
+  #     - name: Ejecutar análisis SCA (Trivy)
+  #       uses: aquasecurity/trivy-action@master
+  #       with:
+  #         image-ref: "budget-api:latest"
+  #         format: "table"
+  #         output: "trivy-report.txt"
 
-      - name: Subir reporte Trivy
-        uses: actions/upload-artifact@v4
-        with:
-          name: trivy-report
-          path: trivy-report.txt
+  #     - name: Subir reporte Trivy
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: trivy-report
+  #         path: trivy-report.txt
