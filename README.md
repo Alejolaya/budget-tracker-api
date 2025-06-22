@@ -125,12 +125,4 @@ budget-api/
 ├── Diagrama.jpg
 └── Presupuesto_API.postman_collection.json
 👨‍💻 Autor
-Desarrollado por [Tu Nombre] como parte del reto técnico DevSecOps de Nequi.
-
-yaml
-Copiar
-Editar
-
----
-
-¿Te gustaría que lo empaquete como archivo `.md` descargable si el error persiste? ​:cont
+Desarrollado por Alejandro Olaya
