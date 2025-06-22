@@ -1,0 +1,57 @@
+{
+  "info": {
+    "name": "Presupuesto API",
+    "_postman_id": "b1234567-89ab-cdef-0123-456789abcdef",
+    "description": "Colecci\u00f3n de pruebas para la API de Presupuesto Personal",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear Movimiento",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tipo\": \"ingreso\",\n  \"descripcion\": \"Salario mensual\",\n  \"monto\": 3000.0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/movimientos/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "movimientos",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar Movimientos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/movimientos/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "movimientos",
+            ""
+          ]
+        }
+      }
+    }
+  ]
+}
