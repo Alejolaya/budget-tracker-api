@@ -5,3 +5,4 @@ app/routes/__pycache__
 app/schemas/__pycache__
 htmlcov
 tests/__pycache__
+.coverage
